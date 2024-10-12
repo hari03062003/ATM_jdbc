@@ -1,0 +1,16 @@
+CREATE TABLE `account` (
+  `accId` int(11) NOT NULL AUTO_INCREMENT,
+  `accName` varchar(20) DEFAULT NULL,
+  `accNum` int(11) DEFAULT NULL,
+  `userName` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `accBal` int(11) DEFAULT '0',
+  PRIMARY KEY (`accId`),
+  UNIQUE KEY `accNum` (`accNum`)
+);
+
+CREATE TABLE transaction(tId int(11) primary key AUTO_INCREMENT,
+transactiondate datetime,
+transtype int(1),
+accNum int(11),
+foreign key (accNum) references account(accNum));
